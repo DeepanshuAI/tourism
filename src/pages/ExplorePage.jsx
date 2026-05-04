@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
 import { DestinationCard } from '../components/ui/DestinationCard';
 import { Button } from '../components/ui/Button';
 
 export const ExplorePage = () => {
   const { destinations } = useAppStore();
-  const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
+  const [searchTerm, setSearchTerm] = useState(location.state?.searchQuery || '');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const categories = ['All', 'Beach', 'Mountain', 'City', 'Adventure'];

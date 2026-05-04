@@ -1,6 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Calendar, Users, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
 import { DestinationCard } from '../components/ui/DestinationCard';
 import { Button } from '../components/ui/Button';
@@ -8,6 +9,34 @@ import { Button } from '../components/ui/Button';
 export const LandingPage = () => {
   const { destinations } = useAppStore();
   const featuredDestinations = destinations.slice(0, 3);
+  const navigate = useNavigate();
+
+  const [locationQuery, setLocationQuery] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const searchResults = destinations.filter(dest => 
+    dest.title.toLowerCase().includes(locationQuery.toLowerCase()) || 
+    dest.location.toLowerCase().includes(locationQuery.toLowerCase())
+  );
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSearch = () => {
+    if (locationQuery) {
+      navigate('/explore', { state: { searchQuery: locationQuery } });
+    } else {
+      navigate('/explore');
+    }
+  };
 
   return (
     <motion.div 
@@ -51,14 +80,58 @@ export const LandingPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card w-full max-w-4xl p-2 flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2 bg-white/90 dark:bg-slate-900/90"
+            className="glass-card w-full max-w-4xl p-2 flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2 bg-white/90 dark:bg-slate-900/90 relative"
           >
-            <div className="flex-1 flex items-center px-4 py-3 w-full border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
+            <div className="flex-1 flex items-center px-4 py-3 w-full border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 relative" ref={dropdownRef}>
               <MapPin className="w-5 h-5 text-slate-400 mr-3" />
               <div className="flex flex-col w-full text-left">
                 <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Location</label>
-                <input type="text" placeholder="Where are you going?" className="bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder-slate-400 font-medium w-full" />
+                <input 
+                  type="text" 
+                  placeholder="Where are you going?" 
+                  className="bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder-slate-400 font-medium w-full" 
+                  value={locationQuery}
+                  onChange={(e) => {
+                    setLocationQuery(e.target.value);
+                    setShowDropdown(true);
+                  }}
+                  onFocus={() => setShowDropdown(true)}
+                />
               </div>
+
+              {/* Dropdown */}
+              <AnimatePresence>
+                {showDropdown && locationQuery && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full left-0 w-full mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden z-50"
+                  >
+                    {searchResults.length > 0 ? (
+                      <div className="max-h-60 overflow-y-auto hide-scrollbar">
+                        {searchResults.map(dest => (
+                          <div 
+                            key={dest.id}
+                            className="px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer flex items-center gap-3 transition-colors"
+                            onClick={() => navigate(`/destination/${dest.id}`)}
+                          >
+                            <img src={dest.image} alt={dest.title} className="w-12 h-12 rounded-lg object-cover" />
+                            <div>
+                              <h4 className="text-sm font-semibold text-slate-900 dark:text-white">{dest.title}</h4>
+                              <p className="text-xs text-slate-500 dark:text-slate-400">{dest.location}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="px-4 py-4 text-sm text-slate-500 dark:text-slate-400 text-center">
+                        No destinations found.
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             <div className="flex-1 flex items-center px-4 py-3 w-full border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
               <Calendar className="w-5 h-5 text-slate-400 mr-3" />
@@ -75,7 +148,7 @@ export const LandingPage = () => {
               </div>
             </div>
             <div className="px-2 w-full md:w-auto pb-2 md:pb-0">
-              <Button variant="primary" size="lg" className="w-full md:w-auto rounded-xl">
+              <Button variant="primary" size="lg" className="w-full md:w-auto rounded-xl" onClick={handleSearch}>
                 <Search className="w-5 h-5 mr-2" />
                 Search
               </Button>
