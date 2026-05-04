@@ -20,8 +20,8 @@ export const LandingPage = () => {
       <section className="relative h-[90vh] flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=2000&q=80" 
-            alt="Andaman Background" 
+            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2000&q=80" 
+            alt="Hero Background" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply" />
@@ -35,7 +35,7 @@ export const LandingPage = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
-            Discover The <br /> <span className="text-primary-400">Andaman Islands</span>
+            Discover Your Next <br /> <span className="text-primary-400">Adventure</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -43,7 +43,7 @@ export const LandingPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-slate-200 mb-12 max-w-2xl font-medium"
           >
-            Explore pristine beaches, vibrant coral reefs, and rich heritage. Your tropical paradise awaits.
+            Explore breathtaking destinations, create unforgettable memories, and travel with confidence. Your journey starts here.
           </motion.p>
 
           {/* Search Bar */}

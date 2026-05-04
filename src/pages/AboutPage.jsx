@@ -12,17 +12,17 @@ export const AboutPage = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">About Andaman Wanderlust</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">About Wanderlust</h1>
           <p className="text-lg text-slate-500 dark:text-slate-400">
-            We are dedicated to showcasing the untouched beauty of the Andaman and Nicobar Islands. 
-            Our mission is to provide you with seamless, eco-friendly, and unforgettable tropical experiences.
+            We believe that travel is the ultimate catalyst for personal growth and global understanding. 
+            Our mission is to make experiencing the world accessible, seamless, and unforgettable.
           </p>
         </div>
 
         <div className="relative h-96 rounded-3xl overflow-hidden mb-24">
           <img 
-            src="https://images.unsplash.com/photo-1590523278191-995cbcda646b?auto=format&fit=crop&w=1600&q=80" 
-            alt="Andaman Beach" 
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" 
+            alt="Our Team" 
             className="w-full h-full object-cover"
           />
         </div>
