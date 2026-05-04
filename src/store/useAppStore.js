@@ -9,7 +9,7 @@ const initialDestinations = [
 ];
 
 const initialHotels = [
-  { id: 'h1', name: 'The Ritz-Carlton, Kyoto', location: 'Kyoto, Japan', pricePerNight: 850, rating: 4.9, image: 'https://www.agoda.com/en-in/the-ritz-carlton-kyoto/hotel/kyoto-jp.html', amenities: ['Spa', 'Pool', 'Free WiFi', 'Restaurant'] },
+  { id: 'h1', name: 'The Ritz-Carlton, Kyoto', location: 'Kyoto, Japan', pricePerNight: 850, rating: 4.9, image: 'https://images.unsplash.com/photo-1542314831-c6a4d14d8373?auto=format&fit=crop&w=800&q=80', amenities: ['Spa', 'Pool', 'Free WiFi', 'Restaurant'] },
   { id: 'h2', name: 'Alila Villas Uluwatu', location: 'Bali, Indonesia', pricePerNight: 600, rating: 4.8, image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80', amenities: ['Private Pool', 'Ocean View', 'Breakfast Included'] },
   { id: 'h3', name: 'The Chedi Andermatt', location: 'Andermatt, Switzerland', pricePerNight: 950, rating: 4.9, image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80', amenities: ['Ski Access', 'Spa', 'Fireplace', 'Gym'] },
   { id: 'h4', name: 'Katikies Hotel', location: 'Santorini, Greece', pricePerNight: 720, rating: 4.9, image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80', amenities: ['Infinity Pool', 'Sea View', 'Room Service'] }
