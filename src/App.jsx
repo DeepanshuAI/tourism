@@ -14,6 +14,10 @@ import { DestinationDetailsPage } from './pages/DestinationDetailsPage';
 import { BookingPage } from './pages/BookingPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AuthPage } from './pages/AuthPage';
+import { HotelsPage } from './pages/HotelsPage';
+import { ExperiencesPage } from './pages/ExperiencesPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -31,6 +35,10 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<LandingPage />} />
         <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/hotels" element={<HotelsPage />} />
+        <Route path="/experiences" element={<ExperiencesPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/destination/:id" element={<DestinationDetailsPage />} />
         <Route path="/book/:id" element={<BookingPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />

@@ -19,8 +19,11 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Explore', path: '/explore' },
+    { name: 'Destinations', path: '/explore' },
+    { name: 'Hotels', path: '/hotels' },
+    { name: 'Experiences', path: '/experiences' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
