@@ -2,17 +2,17 @@ import { create } from 'zustand';
 
 // Expanded Mock Data
 const initialDestinations = [
-  { id: '1', title: 'Bali Getaway', location: 'Indonesia', price: 1200, rating: 4.9, image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80', category: 'Beach', description: 'Experience the beautiful beaches and culture of Bali. Perfect for a relaxing getaway.' },
-  { id: '2', title: 'Swiss Alps Adventure', location: 'Switzerland', price: 2500, rating: 4.8, image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80', category: 'Mountain', description: 'Skiing, snowboarding, and breathtaking views in the heart of the Swiss Alps.' },
-  { id: '3', title: 'Tokyo City Lights', location: 'Japan', price: 1800, rating: 4.7, image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80', category: 'City', description: 'Immerse yourself in the bustling city life, culture, and amazing food of Tokyo.' },
-  { id: '4', title: 'Santorini Sunset', location: 'Greece', price: 1500, rating: 4.9, image: 'https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80', category: 'Beach', description: 'Stunning sunsets, white-washed buildings, and the beautiful Aegean sea.' }
+  { id: '1', title: 'Radhanagar Beach Escape', location: 'Havelock Island, Andaman', price: 18000, rating: 4.9, image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', category: 'Beach', description: 'Relax on Asia\'s finest beach — crystal-clear turquoise waters and pristine white sands at Radhanagar.' },
+  { id: '2', title: 'Neil Island Serenity', location: 'Neil Island, Andaman', price: 14000, rating: 4.8, image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80', category: 'Beach', description: 'Discover tranquil coral reefs, lush greenery, and untouched beaches on the peaceful Neil Island.' },
+  { id: '3', title: 'Port Blair Heritage Tour', location: 'Port Blair, Andaman', price: 9500, rating: 4.7, image: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f11?auto=format&fit=crop&w=800&q=80', category: 'City', description: 'Explore the historic Cellular Jail, Ross Island ruins, and vibrant local markets of Port Blair.' },
+  { id: '4', title: 'Baratang Island Adventure', location: 'Baratang, Andaman', price: 12000, rating: 4.9, image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80', category: 'Adventure', description: 'Cruise through dense mangroves, visit limestone caves, and witness natural mud volcanoes.' }
 ];
 
 const initialHotels = [
-  { id: 'h1', name: 'The Ritz-Carlton, Kyoto', location: 'Kyoto, Japan', pricePerNight: 850, rating: 4.9, image: 'https://images.unsplash.com/photo-1542314831-c6a4d14d8373?auto=format&fit=crop&w=800&q=80', amenities: ['Spa', 'Pool', 'Free WiFi', 'Restaurant'] },
-  { id: 'h2', name: 'Alila Villas Uluwatu', location: 'Bali, Indonesia', pricePerNight: 600, rating: 4.8, image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80', amenities: ['Private Pool', 'Ocean View', 'Breakfast Included'] },
-  { id: 'h3', name: 'The Chedi Andermatt', location: 'Andermatt, Switzerland', pricePerNight: 950, rating: 4.9, image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80', amenities: ['Ski Access', 'Spa', 'Fireplace', 'Gym'] },
-  { id: 'h4', name: 'Katikies Hotel', location: 'Santorini, Greece', pricePerNight: 720, rating: 4.9, image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80', amenities: ['Infinity Pool', 'Sea View', 'Room Service'] }
+  { id: 'h1', name: 'Barefoot at Havelock', location: 'Havelock Island, Andaman', pricePerNight: 12500, rating: 4.9, image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80', amenities: ['Beach Access', 'Spa', 'Free WiFi', 'Restaurant'] },
+  { id: 'h2', name: 'Symphony Palms Beach Resort', location: 'Havelock Island, Andaman', pricePerNight: 8800, rating: 4.8, image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80', amenities: ['Pool', 'Ocean View', 'Breakfast Included', 'Water Sports'] },
+  { id: 'h3', name: 'SeaShell Port Blair', location: 'Port Blair, Andaman', pricePerNight: 6500, rating: 4.7, image: 'https://images.unsplash.com/photo-1542314831-c6a4d14d8373?auto=format&fit=crop&w=800&q=80', amenities: ['Rooftop Pool', 'Gym', 'Free WiFi', 'Bar'] },
+  { id: 'h4', name: 'Munjoh Ocean Resort', location: 'Neil Island, Andaman', pricePerNight: 9200, rating: 4.9, image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80', amenities: ['Private Beach', 'Infinity Pool', 'Snorkelling', 'Room Service'] }
 ];
 
 const initialExperiences = [
