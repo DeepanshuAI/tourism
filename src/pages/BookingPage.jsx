@@ -88,7 +88,7 @@ export const BookingPage = () => {
                 </div>
 
                 <Button type="submit" variant="primary" size="lg" className="w-full mt-8" isLoading={isProcessing}>
-                  Confirm & Pay ${destination.price}
+                  Confirm & Pay ₹{destination.price.toLocaleString('en-IN')}
                 </Button>
               </form>
             </div>
@@ -108,18 +108,18 @@ export const BookingPage = () => {
                 
                 <div className="space-y-3 text-slate-600 dark:text-slate-400">
                   <div className="flex justify-between">
-                    <span>${destination.price} x 1 person</span>
-                    <span>${destination.price}</span>
+                    <span>₹{destination.price.toLocaleString('en-IN')} x 1 person</span>
+                    <span>₹{destination.price.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Service fee</span>
-                    <span>$0.00</span>
+                    <span>₹0.00</span>
                   </div>
                 </div>
                 
                 <div className="flex justify-between items-center mt-6 pt-6 border-t border-slate-200 dark:border-slate-800 font-bold text-lg text-slate-900 dark:text-white">
-                  <span>Total (USD)</span>
-                  <span>${destination.price}</span>
+                  <span>Total (INR)</span>
+                  <span>₹{destination.price.toLocaleString('en-IN')}</span>
                 </div>
               </div>
             </div>

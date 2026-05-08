@@ -105,7 +105,7 @@ export const DestinationDetailsPage = () => {
             <div className="glass-card p-6 sticky top-28">
               <div className="flex justify-between items-end mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
                 <div>
-                  <span className="text-3xl font-bold text-primary-600 dark:text-primary-400">${destination.price}</span>
+                  <span className="text-3xl font-bold text-primary-600 dark:text-primary-400">₹{destination.price.toLocaleString('en-IN')}</span>
                   <span className="text-slate-500 dark:text-slate-400"> / person</span>
                 </div>
                 <div className="flex items-center text-sm font-semibold">

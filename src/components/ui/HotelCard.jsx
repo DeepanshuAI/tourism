@@ -61,7 +61,7 @@ export const HotelCard = ({ hotel }) => {
           <div>
             <span className="text-sm text-slate-500 dark:text-slate-400">Price per night</span>
             <div className="text-lg font-bold text-primary-600 dark:text-primary-500">
-              ${hotel.pricePerNight}
+              ₹{hotel.pricePerNight.toLocaleString('en-IN')}
             </div>
           </div>
           <button className="text-sm font-semibold text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors">

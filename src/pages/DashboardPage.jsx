@@ -84,7 +84,7 @@ export const DashboardPage = () => {
                         <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 mb-2">
                           {booking.status}
                         </span>
-                        <div className="font-bold text-slate-900 dark:text-white">${booking.price}</div>
+                        <div className="font-bold text-slate-900 dark:text-white">₹{booking.price.toLocaleString('en-IN')}</div>
                       </div>
                     </div>
                   ))}

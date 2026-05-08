@@ -61,7 +61,7 @@ export const DestinationCard = ({ destination }) => {
           <div>
             <span className="text-sm text-slate-500 dark:text-slate-400">Starting from</span>
             <div className="text-lg font-bold text-primary-600 dark:text-primary-500">
-              ${destination.price}
+              ₹{destination.price.toLocaleString('en-IN')}
             </div>
           </div>
           <Link to={`/destination/${destination.id}`} className="text-sm font-semibold text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors">
